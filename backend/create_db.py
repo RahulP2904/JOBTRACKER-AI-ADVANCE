@@ -3,7 +3,7 @@ import asyncpg
 
 async def main():
     try:
-        conn = await asyncpg.connect("postgresql://postgres:159951@localhost:5432/postgres")
+        conn = await asyncpg.connect("postgresql://postgres:password@localhost:5432/postgres")
         db_exists = await conn.fetchval("SELECT 1 FROM pg_database WHERE datname='jobflow'")
         if not db_exists:
             await conn.execute('CREATE DATABASE jobflow;')
